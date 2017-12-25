@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+        {% for item in object_list%}
+            <div>
+                <h3 style="margin-bottom: -10px"><a href="{% url 'single_post' item.id %}">{{ item.name }}</a></h3><br>
+                {{ item.content }} <br>
+                Теги: <span class="label label-primary">{{ item.tag.name }}</span><br>
+                Автор: {{ item.user.username }} Опубликовано: {{ item.created }}
+            </div>
+        {% endfor %}
+{% endblock %}
